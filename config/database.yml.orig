@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: app-jsonapi-uuids_development
+
+test:
+  <<: *default
+  database: app-jsonapi-uuids_test
+
+production:
+  <<: *default
+  database: app-jsonapi-uuids_production
+  username: app-jsonapi
+  password: <%= ENV['APP-JSONAPI-UUIDS_DATABASE_PASSWORD'] %>
